@@ -1,6 +1,6 @@
 import React from "react";
 import { cn } from "@/shared/lib";
-import { Container, ModalForm } from "..";
+import { Container, ModalForm } from "../..";
 import { Calculator, ClipboardList, Microscope, ThumbsUp } from "lucide-react";
 import { StageItem } from ".";
 import { Button } from "antd";
@@ -11,7 +11,7 @@ interface Props {
 
 export const StagesWork: React.FC<Props> = ({ className }) => {
   return (
-    <section className={cn("bg-bagroundSecondary py-10", className)}>
+    <section id="stages-work" className={cn("bg-bagroundSecondary py-10 scroll-m-16", className)}>
       <Container className="flex flex-col items-center">
         <h2 className="text-[36px] font-bold text-center">Этапы работы</h2>
         <div className="grid grid-cols-1 gap-12 mt-10 lg:grid-cols-4 sm:grid-cols-2">

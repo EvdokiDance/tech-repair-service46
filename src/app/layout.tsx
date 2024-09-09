@@ -16,7 +16,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru">
-      <body className={nunito.className}>{children}</body>
+      <head>
+        <script src="//code.jivo.ru/widget/P6gv3c0lG9" async></script>
+      </head>
+      <body suppressHydrationWarning={true} className={nunito.className}>{children}</body>
     </html>
   );
 }

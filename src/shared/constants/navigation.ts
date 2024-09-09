@@ -1,18 +1,22 @@
 export const navigation = [
         {
-            title: 'О нас',
-            href: '#',
-        },
-        {
             title: 'Наши услуги',
-            href: '#',
+            href: '#our-services',
         },
         {
-            title: 'Отзывы',
-            href: '#',
+            title: 'Этапы работы',
+            href: '#stages-work',
+        },
+        {
+            title: 'Галерея',
+            href: '#gallery',
         },
         {
             title: 'Контакты',
-            href: '#',
+            href: '#contacts',
+        },
+        {
+            title: 'Вопросы',
+            href: '#faq',
         },
     ]

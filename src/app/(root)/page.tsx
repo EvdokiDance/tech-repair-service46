@@ -1,8 +1,7 @@
-import {  AboutUs, Hero } from "@/shared/ui";
-import { Contacts } from "@/shared/ui/contacts";
-import { Faq } from "@/shared/ui/faq";
-import { OurService } from "@/shared/ui/our-service";
-import { StagesWork } from "@/shared/ui/stages-work";
+import { Contacts, Faq, Gallery, Hero, OurService, StagesWork } from "@/shared/ui";
+
+import { ScrollToTop } from "@/shared/ui/scroll-to-top";
+
 
 
   
@@ -11,10 +10,11 @@ import { StagesWork } from "@/shared/ui/stages-work";
   
     return (
       <>
+        <ScrollToTop/>
         <Hero/>
         <OurService/>
         <StagesWork/>
-        <AboutUs/>
+        <Gallery/>
         <Contacts/>
         <Faq/>
       </>

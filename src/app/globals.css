@@ -12,8 +12,9 @@
       --baground-primary: 30 30 30;
       --baground-secondary: 36 36 35;
       --text-base: 248 248 248;
-
+      color: rgb(34, 34, 34);
       scroll-behavior: smooth;
+      overflow-x: hidden;
     }
   }
 
@@ -27,7 +28,6 @@ address {
 body {
   background-color: rgb(var(--baground-primary));
   color: rgb(var(--text-base));
-
 }
 
 img {

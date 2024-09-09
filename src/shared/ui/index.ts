@@ -6,7 +6,5 @@ export {Title} from './title';
 export {ModalForm} from './modal-form';
 
 
-export * from './hero';
-export * from './our-service';
-export * from './about-us';
+export * from './sections';
 export * from './modal';
