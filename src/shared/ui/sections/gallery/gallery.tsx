@@ -36,8 +36,8 @@ export const Gallery: React.FC<Props> = ({ className }) => {
             arrowSize: 60,
           } } }}>
             <Carousel arrows  autoplay slidesToShow={3}>
-              {courouselItems.map((item) => (
-                <div>
+              {courouselItems.map((item, index) => (
+                <div key={index}>
                   <img
                     style={contentStyle}
                     src={item}
