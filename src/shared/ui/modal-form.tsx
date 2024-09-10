@@ -1,45 +1,100 @@
-'use client'
+"use client";
 
-import React from 'react';
-import { cn } from '@/shared/lib';
-import { Button, Input } from 'antd';
-import { Modal } from '.';
-import { Nunito } from 'next/font/google';
+import React from "react";
+import { cn } from "@/shared/lib";
+import { Button, Checkbox, Form, FormProps, Input } from "antd";
+import { Modal } from ".";
+import { Nunito } from "next/font/google";
 
 interface Props {
-    className?: string;
+  className?: string;
 }
 const nunito = Nunito({ subsets: ["cyrillic"] });
 
-export const ModalForm: React.FC<Props> = ({className}) => {
+const TOKEN = "7511140017:AAFwr3hBCM-8_uBGsw1g1EqhKo9EIsc0SGA";
+const CHAT_ID = "1780387970";
 
-    const [open, setOpen] = React.useState(false);
+
+type FieldType = {
+    firstName?: string;
+    phone?: string;
+};
+
+
+
+
+export const ModalForm: React.FC<Props> = ({ className }) => {
+  const [open, setOpen] = React.useState(false);
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
   
+ const onFinish: FormProps<FieldType>['onFinish'] = async (values) => {
+  console.log('Success:', values);
+
+  const tgMessage = `🔥 Заявка от клиента! %0A%0A` + `👤 Имя:   ${values.firstName}` + '%0A' + `📞 Телефон:   ${values.phone}`;
+
+  setIsSubmitting(true);
+
+  await fetch(
+  `https://api.telegram.org/bot${TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${tgMessage}`
+  );
+
+  setOpen(false);
+  setIsSubmitting(false);
+};
 
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        const target = e.target as HTMLFormElement;
-        
-        const formData = new FormData()
-
-        formData.append("firstName", "John");
-        
-        console.log(formData);
-        e.preventDefault();
-       
-    }
 
   return (
     <>
-        <Button className={cn('w-[380px] h-[60px] text-xl mt-5', nunito.className, className)} type='primary' onClick={() => setOpen(true)}>Оставить заявку</Button>
-        <Modal isModalOpen={open} handleCancel={() => setOpen(false)}>
-            <form onSubmit={handleSubmit}>
-                <div>Форма</div>
-                <input type='text' id='name' name='имя'/>
-                <Input name='телефон'/>
-                <button type='submit'>Отправить</button>
-            </form>
-        </Modal>
+      <Button
+        className={cn(
+          "w-full max-w-[360px] h-[60px] text-xl",
+          nunito.className,
+          className
+        )}
+        type="primary"
+        onClick={() => setOpen(true)}
+      >
+        Оставить заявку
+      </Button>
+      <Modal isModalOpen={open} handleCancel={() => setOpen(false)}>
+        <h3 className="text-xl font-medium mt-5 text-center">Заявка на обратный звонок</h3>
+        <p  className="text-gray-400 font-medium text-center mt-5 text-base">Оставьте заявку и менеджеры свяжутся с Вами в течение 5-10 минут.</p>
+        <Form
+          name="basic"
+          layout="vertical"
+          labelCol={{ offset: 4, span: 16}}
+          wrapperCol={{ span: 30 }}
+          style={{ maxWidth: 600 }}
+          initialValues={{ remember: true }}
+          onFinish={onFinish}
+          autoComplete="off"
+          className="mt-10"
+        >
+          <Form.Item<FieldType>
+            label="Ваше имя"
+            name="firstName"
+            rules={[{ required: true, message: "Пожалуйста введите ваше имя" }, {min: 3, message: "Минимальная длина имени 3 символа"}]}
+          >
+            <Input />
+          </Form.Item>
+
+          <Form.Item<FieldType>
+            label="Номер телефона:"
+            name="phone"
+            rules={[{required: true, message: "Пожалуйста введите ваш номер"}, { pattern: /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/, message: "Вы ввели неправильно номер" }]}
+  
+          >
+            <Input />
+          </Form.Item>
+
+          <Form.Item>
+            <Button loading={isSubmitting} className="w-full mt-5" type="primary" htmlType="submit">
+              Отправить
+            </Button>
+          </Form.Item>
+        </Form>
+      </Modal>
     </>
   );
 };

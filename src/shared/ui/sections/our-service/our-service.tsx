@@ -12,12 +12,12 @@ const ourServiceItems = [
   {
     icon: <LaptopMinimal className="text-primary" size={52} />,
     title: "Ремонт компьютеров и ноутбуков",
-    text: "Ваш компьютер или ноутбук не включается, нет изображения или перегревается? Не волнуйтесь, мы поможем вам справиться с любыми проблемами вашего устройства!",
+    text: "Ваш компьютер или ноутбук не включается, нет изображения или перегревается? Не волнуйтесь, Инспектор гаджет поможем вам справиться с любыми проблемами вашего устройства!",
   },
   {
     icon: <TabletSmartphone className="text-primary" size={52} />,
     title: "Ремонт телефонов и планшетов",
-    text: `Не имеет значения, какой фирмы ваше устройство – мы
+    text: `Не имеет значения, какой фирмы ваше устройство – Инспектор гаджет
   профессионально выполним любой ремонт. От замены разъемов до
   восстановления материнской платы, все будет сделано на высшем
   уровне.`,
@@ -46,10 +46,8 @@ export const OurService: React.FC<Props> = ({ className }) => {
       className={cn("bg-bagroundSecondary py-10 scroll-m-16", className)}
     >
       <Container>
-        <h2 className="text-4xl font-bold text-center">
-          Наш сервис оказывает услуги по{" "}
-          <span className="text-primary"> профессиональному ремонту </span>
-          компьютерной и мобильной техники в Курске
+        <h2 className="text-2xl font-bold text-center break-words lg:text-4xl">
+          Наш сервис оказывает услуги по  <span className="text-primary ">профессиональному ремонту</span> компьютерной и мобильной техники в Курске
         </h2>
 
         <div className="mt-10 flex-col lg:flex lg:flex-row">
@@ -60,7 +58,7 @@ export const OurService: React.FC<Props> = ({ className }) => {
           </div>
 
           <div className="flex flex-1 items-center justify-center">
-            <img src="/assets/images/devices.png" alt="our-service" />
+            <img src="/assets/images/devices.png" alt="все устройства" />
           </div>
         </div>
       </Container>

@@ -18,7 +18,7 @@ export const Header: React.FC<Props> = ({ className }) => {
       <header className={cn('top-3 sticky z-10 px-5', className)}>
                 <Container className='py-3 flex items-center justify-between bg-zinc-900/90 rounded-2xl'>
                     <Link href={'#hero'}><div className='w-30 leading-5 font-bold text-lg'>
-                        Ремонтный сервис <br/> Ивана Святого
+                        Инспектор гаджет
                     </div></Link>
                     <nav className='hidden lg:flex lg:gap-3'>
                         {navigation.map((item) => (
