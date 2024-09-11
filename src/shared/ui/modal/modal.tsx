@@ -8,15 +8,17 @@ interface Props {
   children?: React.ReactNode;
   handleCancel?: () => void;
   isModalOpen?: boolean;
+  width?: number;
 }
 
-export const Modal: React.FC<Props> = ({  children, handleCancel, isModalOpen }) => {
+export const Modal: React.FC<Props> = ({  children, handleCancel, isModalOpen, width }) => {
 
   return (
       <AntdModal
         open={isModalOpen}
         onCancel={handleCancel}
         footer={null}
+        width={width}
       >
         {children}
       </AntdModal>

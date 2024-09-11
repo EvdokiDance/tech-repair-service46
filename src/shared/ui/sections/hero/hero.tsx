@@ -27,10 +27,11 @@ export const Hero: React.FC<Props> = ({ className }) => {
             </p>
             <ModalForm className="mt-10"/>
           </div>
-          <div className="relative bg-primary/40 w-[375px] h-[400px] mt-16 lg:mt-0 rounded-[86%_19%_30%_30%_/_42%_70%_30%_58%_]">
+          <div className="relative bg-primary/40 w-[250px] h-[275px] sm:w-[375px] sm:h-[400px] mt-16 lg:mt-0 rounded-[86%_19%_30%_30%_/_42%_70%_30%_58%_]">
             <img
-              className="relative w-[375px] h-[400px] object-cover"
+              className="relative sm:w-[375px] w-full h-full object-cover"
               src={"/assets/images/man-smiling.png"}
+
               alt="улыбающийся мужчина"
             />
           </div>

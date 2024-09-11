@@ -2,9 +2,10 @@
 
 import React from "react";
 import { cn } from "@/shared/lib";
-import { Button, Checkbox, Form, FormProps, Input } from "antd";
+import { Button, Form, FormProps, Input } from "antd";
 import { Modal } from ".";
 import { Nunito } from "next/font/google";
+import toast from "react-hot-toast";
 
 interface Props {
   className?: string;
@@ -26,9 +27,10 @@ type FieldType = {
 export const ModalForm: React.FC<Props> = ({ className }) => {
   const [open, setOpen] = React.useState(false);
   const [isSubmitting, setIsSubmitting] = React.useState(false);
-  
+  const [form] = Form.useForm()
+
+
  const onFinish: FormProps<FieldType>['onFinish'] = async (values) => {
-  console.log('Success:', values);
 
   const tgMessage = `🔥 Заявка от клиента! %0A%0A` + `👤 Имя:   ${values.firstName}` + '%0A' + `📞 Телефон:   ${values.phone}`;
 
@@ -38,8 +40,11 @@ export const ModalForm: React.FC<Props> = ({ className }) => {
   `https://api.telegram.org/bot${TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${tgMessage}`
   );
 
+  toast.success('Заявка успешно отправлена!');
+
   setOpen(false);
   setIsSubmitting(false);
+  form.resetFields();
 };
 
 
@@ -61,15 +66,10 @@ export const ModalForm: React.FC<Props> = ({ className }) => {
         <h3 className="text-xl font-medium mt-5 text-center">Заявка на обратный звонок</h3>
         <p  className="text-gray-400 font-medium text-center mt-5 text-base">Оставьте заявку и менеджеры свяжутся с Вами в течение 5-10 минут.</p>
         <Form
-          name="basic"
-          layout="vertical"
-          labelCol={{ offset: 4, span: 16}}
-          wrapperCol={{ span: 30 }}
-          style={{ maxWidth: 600 }}
-          initialValues={{ remember: true }}
+          form={form}
           onFinish={onFinish}
-          autoComplete="off"
           className="mt-10"
+          layout="vertical"
         >
           <Form.Item<FieldType>
             label="Ваше имя"

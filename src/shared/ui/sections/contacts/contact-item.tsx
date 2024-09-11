@@ -5,7 +5,7 @@ import Link from 'next/link';
 interface Props {
     className?: string;
     icon: React.ReactNode;
-    href: string;
+    href?: string;
     title: string;
     text: string;
 }
@@ -17,7 +17,7 @@ export const ContactItem: React.FC<Props> = ({ className, href, icon, title, tex
               {icon}
               <span className="font-bold">{title}</span>
             </div>
-            <Link  href={href} className="text-primary underline underline-offset-4">{text}</Link>
+            { href ? <Link href={href} className="text-primary underline underline-offset-4">{text}</Link> : <span>{text}</span> }
     </div>
   );
 };

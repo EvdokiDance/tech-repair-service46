@@ -12,7 +12,7 @@ export const ScrollToTop: React.FC<Props> = ({ className }) => {
 
     const [isVisible, setIsVisible] = React.useState(false);
 
-    // Показать кнопку, когда пользователь прокрутит вниз
+
     const toggleVisibility = () => {
       if (window.pageYOffset > 1200) {
         setIsVisible(true);
@@ -24,7 +24,7 @@ export const ScrollToTop: React.FC<Props> = ({ className }) => {
     const scrollToTop = () => {
       window.scrollTo({
         top: 0,
-        behavior: "smooth", // плавная прокрутка
+        behavior: "smooth", 
       });
     };
   

@@ -10,7 +10,7 @@ interface Props extends LinkProps {
 
 export const NavItem: React.FC<Props> = ({ className, children, ...props }) => {
   return (
-    <Link {...props} className={cn('p-2 h-full text-sm font-medium hover:text-primary transition-all', className)}>
+    <Link {...props} className={cn('text-sm font-medium hover:text-primary transition-all', className)}>
         {children}
     </Link>
   );

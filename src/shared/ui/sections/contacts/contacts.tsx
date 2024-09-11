@@ -48,7 +48,6 @@ export const Contacts: React.FC<Props> = ({ className }) => {
               text="@abobadance"
             />
             <ContactItem
-              href={`tel:${contacts.phone}`}
               icon={<AlarmClock size={32} />}
               title="Часы работы:"
               text="пн. - вс. c 9:00 до 21:00"
