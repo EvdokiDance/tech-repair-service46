@@ -13,7 +13,7 @@ interface Props {
 const nunito = Nunito({ subsets: ["cyrillic"] });
 
 const TOKEN = "7511140017:AAFwr3hBCM-8_uBGsw1g1EqhKo9EIsc0SGA";
-const CHAT_ID = "1780387970";
+const CHAT_ID = "-1002408155374";
 
 
 type FieldType = {

@@ -45,7 +45,7 @@ export const Contacts: React.FC<Props> = ({ className }) => {
               href={`https://t.me/${contacts.phone}`}
               icon={<BiLogoTelegram size={32} />}
               title="Телеграм:"
-              text="@abobadance"
+              text="@darksaiden"
             />
             <ContactItem
               icon={<AlarmClock size={32} />}
