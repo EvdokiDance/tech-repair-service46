@@ -27,7 +27,7 @@ export const ModalForm: React.FC<Props> = ({ className }) => {
   setIsSubmitting(true);
 
   try {
-    const response = await fetch("/api/requests", {
+    const response = await fetch("/send.php", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

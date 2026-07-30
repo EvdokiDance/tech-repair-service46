@@ -28,6 +28,7 @@ next-dev*.log
 
 # local env files
 .env*.local
+/public/config.php
 
 # vercel
 .vercel
