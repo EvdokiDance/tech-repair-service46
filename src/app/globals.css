@@ -35,3 +35,39 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+.hero-parallax {
+  --parallax-backdrop-y: 0px;
+  --parallax-panel-x: 0px;
+  --parallax-panel-y: 0px;
+  --parallax-rail-x: 0px;
+  --parallax-rail-y: 0px;
+  --parallax-image-y: 0px;
+}
+
+.hero-parallax [data-parallax-layer] {
+  will-change: transform;
+}
+
+.hero-parallax [data-parallax-layer="backdrop"] {
+  transform: translate3d(0, var(--parallax-backdrop-y), 0);
+}
+
+.hero-parallax [data-parallax-layer="panel"] {
+  transform: translate3d(var(--parallax-panel-x), var(--parallax-panel-y), 0);
+}
+
+.hero-parallax [data-parallax-layer="rail"] {
+  transform: translate3d(var(--parallax-rail-x), var(--parallax-rail-y), 0);
+}
+
+.hero-parallax [data-parallax-layer="image"] {
+  transform: translate3d(0, var(--parallax-image-y), 0) scale(1.03);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-parallax [data-parallax-layer] {
+    transform: none;
+    will-change: auto;
+  }
+}
