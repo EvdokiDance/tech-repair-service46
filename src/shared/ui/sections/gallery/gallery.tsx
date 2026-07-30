@@ -24,14 +24,26 @@ const carouselItems = [
   {
     src: "/assets/images/about-us-1.jpg",
     alt: "рабочее место сервисного центра Инспектор Гаджет в Курске",
+    width: 1620,
+    height: 2160,
   },
   {
     src: "/assets/images/about-us-2.jpg",
     alt: "ремонт цифровой техники в сервисном центре Инспектор Гаджет",
+    width: 1620,
+    height: 2160,
   },
   {
     src: "/assets/images/about-us-3.jpg",
     alt: "фотография сервиса ремонта телефонов и ноутбуков в Курске",
+    width: 1620,
+    height: 2160,
+  },
+  {
+    src: "/assets/images/about-us-4.jpg",
+    alt: "мастер за диагностикой устройства в сервисном центре Инспектор Гаджет",
+    width: 1086,
+    height: 1448,
   },
 ];
 
@@ -70,16 +82,25 @@ export const Gallery: React.FC<Props> = ({ className }) => {
           <ConfigProvider theme={{ components: { Carousel: {
             arrowSize: 60,
           } } }}>
-            <Carousel arrows  autoplay slidesToShow={width < 768 ? 1 : 3}>
+            <Carousel
+              className="gallery-carousel"
+              arrows
+              autoplay
+              draggable
+              swipeToSlide
+              touchThreshold={10}
+              slidesToShow={width < 768 ? 1 : 3}
+            >
               {carouselItems.map((item) => (
                 <div key={item.src}>
                   <Image
                     style={contentStyle}
                     src={item.src}
                     alt={item.alt}
-                    width={1620}
-                    height={2160}
+                    width={item.width}
+                    height={item.height}
                     sizes={width < 768 ? "100vw" : "33vw"}
+                    draggable={false}
                   />
                 </div>
               ))}

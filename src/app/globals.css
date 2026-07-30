@@ -71,3 +71,19 @@ img {
     will-change: auto;
   }
 }
+
+/* Горизонтальный жест отдаем карусели, вертикальный - скроллу страницы:
+   иначе браузер прокручивает страницу одновременно с перетаскиванием слайда. */
+.gallery-carousel .slick-list {
+  touch-action: pan-y;
+  cursor: grab;
+}
+
+.gallery-carousel .slick-list:active {
+  cursor: grabbing;
+}
+
+.gallery-carousel .slick-slide img {
+  -webkit-user-drag: none;
+  user-select: none;
+}
