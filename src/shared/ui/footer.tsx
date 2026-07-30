@@ -26,11 +26,11 @@ export const Footer: React.FC<Props> = ({ className }) => {
           <div className="flex flex-col gap-3">
             <div>
               <a href={`tel:${contacts.phone}`} className="text-xl">
-                8 (951) 312-77-69
+                {contacts.phoneFormatted}
               </a>
               <div className="text-sm text-gray-500">9:00-21:00</div>
             </div>
-            <a href={`tel:${contacts.email}`} className="text-xl">
+            <a href={`mailto:${contacts.email}`} className="text-xl">
               {contacts.email}
             </a>
 
@@ -38,7 +38,7 @@ export const Footer: React.FC<Props> = ({ className }) => {
               <h3 className="text-xl">Мы в соцсетях</h3>
               <div className="flex justify-center md:justify-start mt-2 gap-3">
 
-                <Link aria-label="Телеграм" href="https://t.me/+79513127769" target="_blank">
+                <Link aria-label="Телеграм" href={contacts.telegram} target="_blank">
                   <FaTelegram size={32} className="text-primary" />
                 </Link>
 

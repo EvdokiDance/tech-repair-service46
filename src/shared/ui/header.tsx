@@ -29,8 +29,8 @@ export const Header: React.FC<Props> = ({ className }) => {
           ))}
         </nav>
         <div className="hidden lg:flex lg:gap-3 lg: items-center">
-          <Link href={`tel:${contacts.phone}`}>8 (951) 312-77-69</Link>
-          <Link href={"https://t.me/+79513127769"} target="_blank">
+          <Link href={`tel:${contacts.phone}`}>{contacts.phoneFormatted}</Link>
+          <Link href={contacts.telegram} target="_blank">
             <Image
               width={25}
               height={25}

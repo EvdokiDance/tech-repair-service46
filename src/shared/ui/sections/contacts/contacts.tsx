@@ -33,7 +33,7 @@ export const Contacts: React.FC<Props> = ({ className }) => {
               href={`tel:${contacts.phone}`}
               icon={<Smartphone size={32} />}
               title="Телефон:"
-              text="8 (951) 312-77-69"
+              text={contacts.phoneFormatted}
             />
             <ContactItem
               href={`mailto:${contacts.email}`}
@@ -42,10 +42,10 @@ export const Contacts: React.FC<Props> = ({ className }) => {
               text={contacts.email}
             />
             <ContactItem
-              href={`https://t.me/${contacts.phone}`}
+              href={contacts.telegram}
               icon={<BiLogoTelegram size={32} />}
               title="Телеграм:"
-              text="@darksaiden"
+              text={contacts.telegramLabel}
             />
             <ContactItem
               icon={<AlarmClock size={32} />}

@@ -29,7 +29,7 @@ export const ModalNav: React.FC<Props> = ({ className }) => {
             ))}
           </nav>
           <div className="flex justify-center items-center mt-2">
-          <Link className="p-2" href={"https://t.me/+79513127769"} target="_blank">
+          <Link className="p-2" href={contacts.telegram} target="_blank">
             <Image
               width={25}
               height={25}
@@ -37,7 +37,7 @@ export const ModalNav: React.FC<Props> = ({ className }) => {
               src="/assets/icons/telegram.svg"
             />
           </Link>
-          <Link className="p-2 text-xl" href={`tel:${contacts.phone}`}>8 (951) 312-77-69</Link>
+          <Link className="p-2 text-xl" href={`tel:${contacts.phone}`}>{contacts.phoneFormatted}</Link>
           </div>
         </div>
       </Modal>

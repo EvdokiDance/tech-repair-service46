@@ -1,6 +1,8 @@
 export const contacts = {
     phone: '+79513127769',
-    telegram: 'https://t.me/abobadance',
+    phoneFormatted: '8 (951) 312-77-69',
+    telegram: 'https://t.me/darksaiden',
+    telegramLabel: '@darksaiden',
     email: 'Sergejpula5@gmail.com',
     address: 'г. Курск, Союзная ул. 16',
 }
