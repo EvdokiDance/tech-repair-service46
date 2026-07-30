@@ -20,7 +20,7 @@ export const Footer: React.FC<Props> = ({ className }) => {
       <Container>
         <div className="flex flex-col items-center text-center md:items-start md:text-left md:flex-row md:justify-between">
           <div className="flex flex-col text-xl">
-            <address>Россия, г.Курск, Союзная ул. 16</address>
+            <address>Россия, {contacts.address}</address>
             <div>пн. - вс. c 9:00 до 21:00</div>
           </div>
           <div className="flex flex-col gap-3">

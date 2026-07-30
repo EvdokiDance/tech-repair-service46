@@ -28,7 +28,7 @@ export const SITE_KEYWORDS = [
 ];
 
 export const businessAddress = {
-  streetAddress: "Союзная ул. 16",
+  streetAddress: "ул. 1-я Вишнёвая, 17",
   addressLocality: "Курск",
   addressRegion: "Курская область",
   addressCountry: "RU",

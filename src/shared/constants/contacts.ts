@@ -4,5 +4,5 @@ export const contacts = {
     telegram: 'https://t.me/darksaiden',
     telegramLabel: '@darksaiden',
     email: 'Sergejpula5@gmail.com',
-    address: 'г. Курск, Союзная ул. 16',
+    address: 'г. Курск, ул. 1-я Вишнёвая, 17',
 }
