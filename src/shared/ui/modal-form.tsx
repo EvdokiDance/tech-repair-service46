@@ -12,17 +12,10 @@ interface Props {
 }
 const nunito = Nunito({ subsets: ["cyrillic"] });
 
-const TOKEN = "7511140017:AAFwr3hBCM-8_uBGsw1g1EqhKo9EIsc0SGA";
-const CHAT_ID = "-1002408155374";
-
-
 type FieldType = {
     firstName?: string;
     phone?: string;
 };
-
-
-
 
 export const ModalForm: React.FC<Props> = ({ className }) => {
   const [open, setOpen] = React.useState(false);
@@ -31,20 +24,30 @@ export const ModalForm: React.FC<Props> = ({ className }) => {
 
 
  const onFinish: FormProps<FieldType>['onFinish'] = async (values) => {
-
-  const tgMessage = `🔥 Заявка от клиента! %0A%0A` + `👤 Имя:   ${values.firstName}` + '%0A' + `📞 Телефон:   ${values.phone}`;
-
   setIsSubmitting(true);
 
-  await fetch(
-  `https://api.telegram.org/bot${TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${tgMessage}`
-  );
+  try {
+    const response = await fetch("/api/requests", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(values),
+    });
 
-  toast.success('Заявка успешно отправлена!');
+    if (!response.ok) {
+      const data = await response.json().catch(() => null);
+      throw new Error(data?.message || "Не удалось отправить заявку");
+    }
 
-  setOpen(false);
-  setIsSubmitting(false);
-  form.resetFields();
+    toast.success('Заявка успешно отправлена!');
+    setOpen(false);
+    form.resetFields();
+  } catch (error) {
+    toast.error(error instanceof Error ? error.message : "Не удалось отправить заявку");
+  } finally {
+    setIsSubmitting(false);
+  }
 };
 
 
