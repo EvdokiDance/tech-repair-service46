@@ -106,8 +106,8 @@ export const HeroParallaxVisual: React.FC<Props> = ({ className }) => {
           className="h-full w-full object-cover object-center"
           src="/assets/images/man-smiling.png"
           alt="мастер сервисного центра Инспектор Гаджет в Курске"
-          width={2000}
-          height={1333}
+          width={1000}
+          height={667}
           priority
         />
       </div>

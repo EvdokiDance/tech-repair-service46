@@ -38,8 +38,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: absoluteUrl("/assets/images/devices.png"),
-        width: 3000,
-        height: 1800,
+        width: 1600,
+        height: 960,
         alt: "Ремонт телефонов, планшетов и ноутбуков в Курске",
       },
     ],

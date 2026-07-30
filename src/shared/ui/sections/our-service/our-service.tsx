@@ -62,8 +62,8 @@ export const OurService: React.FC<Props> = ({ className }) => {
             <Image
               src="/assets/images/devices.png"
               alt="смартфоны, планшеты и ноутбуки для ремонта в сервисном центре Инспектор Гаджет"
-              width={3000}
-              height={1800}
+              width={1600}
+              height={960}
               sizes="(min-width: 1024px) 50vw, 100vw"
             />
           </div>

@@ -20,30 +20,25 @@ const contentStyle: React.CSSProperties = {
 };
 
 
+// Все фотографии галереи пережаты в один размер.
+const carouselImageSize = { width: 1080, height: 1440 };
+
 const carouselItems = [
   {
     src: "/assets/images/about-us-1.jpg",
     alt: "рабочее место сервисного центра Инспектор Гаджет в Курске",
-    width: 1620,
-    height: 2160,
   },
   {
     src: "/assets/images/about-us-2.jpg",
     alt: "ремонт цифровой техники в сервисном центре Инспектор Гаджет",
-    width: 1620,
-    height: 2160,
   },
   {
     src: "/assets/images/about-us-3.jpg",
     alt: "фотография сервиса ремонта телефонов и ноутбуков в Курске",
-    width: 1620,
-    height: 2160,
   },
   {
     src: "/assets/images/about-us-4.jpg",
     alt: "мастер за диагностикой устройства в сервисном центре Инспектор Гаджет",
-    width: 1086,
-    height: 1448,
   },
 ];
 
@@ -97,8 +92,8 @@ export const Gallery: React.FC<Props> = ({ className }) => {
                     style={contentStyle}
                     src={item.src}
                     alt={item.alt}
-                    width={item.width}
-                    height={item.height}
+                    width={carouselImageSize.width}
+                    height={carouselImageSize.height}
                     sizes={width < 768 ? "100vw" : "33vw"}
                     draggable={false}
                   />
