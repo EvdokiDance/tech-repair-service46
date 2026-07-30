@@ -16,15 +16,33 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## SEO deployment
+## Публикация на хостинге без Node.js
 
-Before publishing the landing page, set the production URL:
+Проект собирается статикой (`output: "export"` в `next.config.mjs`), поэтому
+подходит обычный хостинг с PHP.
 
-```bash
-NEXT_PUBLIC_SITE_URL=https://your-domain.ru
-```
+1. Создать `.env.local` с адресом сайта — он вшивается в сборку, а не читается
+   на сервере:
 
-This value is used for canonical URLs, `robots.txt`, `sitemap.xml`, Open Graph images, and LocalBusiness structured data.
+   ```bash
+   NEXT_PUBLIC_SITE_URL=https://your-domain.ru
+   ```
+
+   Отсюда берутся canonical, `robots.txt`, `sitemap.xml`, Open Graph и
+   структурированные данные LocalBusiness. Если собрать без этой переменной, в
+   них попадет `http://localhost:3000`.
+
+2. `npm run build` — готовые файлы окажутся в `out/`.
+
+3. Содержимое `out/` залить в корень сайта.
+
+4. Рядом с `index.html` создать `config.php` по образцу `config.sample.php` и
+   вписать туда токен бота и chat id. Форма заявки отправляет данные в
+   `send.php`, который читает этот файл; в браузер токен не попадает.
+
+Картинки в `public/assets/images` уже пережаты под верстку: при статическом
+экспорте `next/image` не оптимизирует их на лету, поэтому новые файлы нужно
+сжимать вручную и указывать в коде реальные размеры.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
